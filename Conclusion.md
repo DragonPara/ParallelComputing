@@ -1,0 +1,59 @@
+# The first try
+
+```c
+#include<time.h>
+#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int time1=clock(),time2;
+#pragma omp parallel for
+    for (int i = 0; i < 10000; i++)
+    {
+        printf("i = %d\n", i);
+    }
+    time2=clock();
+    printf("%d",time2-time1);
+    return 0;
+}
+```
+
+I give it 12 threads, and compare to 1 thread.
+
+I can't believe it, the left is 12 and the right is 1
+
+i![5c3a43a5f76b5ad15a739832b034ef1](C:\Users\Dragon\AppData\Local\Temp\WeChat Files\5c3a43a5f76b5ad15a739832b034ef1.png)
+
+So, parallel computing is not quickly done forever.
+
+# The second try
+
+Because the code with print to display, so this time, I will let it output only result
+
+```c
+#include<time.h>
+#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int time1=clock(),time2;
+    int tmp=0;
+#pragma omp parallel for
+    for (int i = 0; i < 100000; i++)
+    {
+        tmp+=i;
+        if(i%1000==0)
+        printf("%d\n",i);
+    }
+    printf("i = %d\n", tmp);
+    time2=clock();
+    printf("%d",time2-time1);
+    return 0;
+}
+```
+
+As we guess, the result really good
+
+![fc5d253c7d8ab97536d96f8907d5deb](C:\Users\Dragon\AppData\Local\Temp\WeChat Files\fc5d253c7d8ab97536d96f8907d5deb.png)
+
+because my CPU is very quick, so I have to increase 'i'
+
+We can get the conclusion parallel output  use more time than we thought.
