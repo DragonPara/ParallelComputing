@@ -17,7 +17,7 @@ printf("%d",i);
 
 ***different signs have differentt initalize,for example:***
 |sign|value|
------|-------
+-|-
 |+|1|
 |*|0|
 |-|0|
