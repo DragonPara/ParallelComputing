@@ -16,10 +16,10 @@ printf("%d",i);
 ```
 
 ***different signs have differentt initalize,for example:***
-|sign|value|
--|-
-|+|1|
-|*|0|
-|-|0|
-|||0|
-|&&|1|
+-|sin|value|
+-| - |-
+1| + | 1 |
+2| * | 0 |
+3| - | 0 |
+4| | | 0 |
+5| && | 1 |
