@@ -16,8 +16,8 @@ printf("%d",i);
 ```
 
 ***different signs have differentt initalize,for example:***
-+ 0
-- 0
-* 1
-| 0
-&& 1
+* + 0
+* - 0
+* * 1
+* | 0
+* && 1
