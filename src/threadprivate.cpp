@@ -7,7 +7,7 @@
 
 int counter(){
     static int counter=0;
-#pragma omp threadprivate(counter)
+    #pragma omp threadprivate(counter)
     counter++;
     printf("%d\n",counter);
     return counter;
@@ -15,22 +15,24 @@ int counter(){
 void main(int argc, char *argv)
 {
     int result;
-#pragma omp parallel sections reduction(+:result)
+    #pragma omp parallel sections reduction(+:result)
     {
-#pragma omp section
+        #pragma omp section
         {
             for(int i=0;i<2;i++)
                 result=counter();
             printf("%d\n",result);
         }
 
-#pragma omp section
-        {for(int i=0;i<2;i++)
+        #pragma omp section
+        {
+            for(int i=0;i<2;i++)
                 result=counter();
             printf("%d\n",result);
         }
-#pragma omp section
-        {for(int i=0;i<2;i++)
+        #pragma omp section
+        {
+            for(int i=0;i<2;i++)
                 result=counter();
             printf("%d\n",result);
         }
