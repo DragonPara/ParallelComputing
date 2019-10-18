@@ -18,8 +18,8 @@ printf("%d",i);
 ***different signs have differentt initalize,for example:***
 
 |sign|value|
-|:--:|:--:|
-|+|0|
-|&&|1|
-|-|0|
-|`*`|1|
+|:--:|:--: |
+|+   |0    |
+|&&  |1    |
+|-   |0    |
+| `*`|1    |
