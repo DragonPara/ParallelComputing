@@ -70,7 +70,7 @@ void main(int argc, char *argv)
     {
         #pragma omp section
         {
-            i=0;clock();
+            i=0;
             omp_get_wtime();
             i+=1;
             printf("一i=%d\n",i);
