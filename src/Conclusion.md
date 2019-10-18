@@ -97,10 +97,7 @@ it use much time, and if we let ```test()``` run more times.
 
 At first, I think they are fighting for only one Controller. But  in fact, Time counter is the real  error. OpenMPI has its counter.```double omp_get_wtime()```
 
- 
-
 Code:
-
 ```C
 #include<stdio.h>
 #include<omp.h>
