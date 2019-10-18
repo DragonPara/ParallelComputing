@@ -12,10 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="569d6792-f5c2-4a91-9398-62a79246c6c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/reduction.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections.c" beforeDir="false" afterPath="$PROJECT_DIR$/sections.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private.c" beforeDir="false" afterPath="$PROJECT_DIR$/private.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/shared.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +36,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ParallelComputing\Coding\Test1\src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -79,7 +83,7 @@
       <workItem from="1571184250579" duration="1159000" />
       <workItem from="1571186882971" duration="4616000" />
       <workItem from="1571275355692" duration="8982000" />
-      <workItem from="1571358571315" duration="972000" />
+      <workItem from="1571358571315" duration="6135000" />
     </task>
     <servers />
   </component>
