@@ -34,8 +34,9 @@ void main(int argc, char *argv)
         #pragma omp section
         {
             i4=add();
-            printf("section 4 ThreadId = %d\n", omp_get_thread_num());}
+            printf("section 4 ThreadId = %d\n", omp_get_thread_num());
         }
+    }
     double t2= omp_get_wtime();
     printf("%ld\n",sum=i1+i2+i3+i4);
     printf("TotalTime : %lf\n",t2-t1);
