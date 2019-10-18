@@ -17,6 +17,6 @@ printf("%d",i);
 
 ***different signs have differentt initalize,for example:***
 
-|a|b|c|
-|:--:|:--:|:--:|
-|c|d|d|
+|a|b|
+|:--:|:--:|
+|c|d|
