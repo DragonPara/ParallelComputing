@@ -1,4 +1,4 @@
-# The first try
+## The first try
 
 ```c
 #include<time.h>
@@ -25,7 +25,7 @@ I can't believe it, the left is 12Controllers and the right is only one.
 
 So, parallel computing is not quickly done forever.
 
-# The second try
+## The second try
 
 Because the code with print to display, so this time, I will let it output only result
 
@@ -58,7 +58,7 @@ because my CPU is very quick, so I have to increase 'i'
 
 We can get the conclusion parallel output  use more time than we thought.
 
-# Runtime counter
+## Runtime counter
 
 The codes I ran in Win10 before. Today I try to run it in kali Linux.
 
