@@ -4,7 +4,7 @@
 int main(int argc, char *argv[])
 {
     int time1=clock(),time2;
-    int tmp=0;
+//     int tmp=0;
     #pragma omp parallel for
     for (int i = 0; i < 10000; i++)
     {
