@@ -4,4 +4,4 @@
 well done is quickly done
 
 ## OpenMped
-## ASCing
+## MPIing
