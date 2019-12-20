@@ -1,4 +1,7 @@
 import java.util.concurrent.*;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 public class AccountWithoutSync{
     public static Account account = new Account();
     public static void main(String[] args) {
@@ -24,8 +27,7 @@ public class AccountWithoutSync{
             int newBalance  = balance+amount;
             try {
                 Thread.sleep(5);
-            } catch (InterruptedException e) {
-            }
+            } catch (InterruptedException e) {}
             balance = newBalance;
         }
     }
