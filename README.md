@@ -4,4 +4,5 @@
 well done is quickly done
 
 ## OpenMped
-## MPIing
+## interrupt MPI
+## CUDAing
