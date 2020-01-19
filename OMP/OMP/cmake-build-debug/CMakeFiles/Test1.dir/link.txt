@@ -1,0 +1,1 @@
+D:/ParallelComputing/Cygwin/bin/gcc.exe -fopenmp -g  -Wl,--enable-auto-import CMakeFiles/Test1.dir/main.c.o  -o Test1.exe -Wl,--out-implib,libTest1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
