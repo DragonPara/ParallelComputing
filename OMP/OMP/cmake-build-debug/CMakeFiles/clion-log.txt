@@ -1,7 +1,0 @@
-C:\Users\Dragon\.CLion2019.2\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=D:/ParallelComputing/Cygwin/bin/make.exe -DCMAKE_C_COMPILER=D:/ParallelComputing/Cygwin/bin/gcc.exe -DCMAKE_CXX_COMPILER=D:/ParallelComputing/Cygwin/bin/c++.exe -G "CodeBlocks - Unix Makefiles" /cygdrive/d/ParallelComputing/Coding/Test1/src
--- Found OpenMP_C: -fopenmp  
--- Found OpenMP_CXX: -fopenmp  
--- Found OpenMP: TRUE   
--- Configuring done
--- Generating done
--- Build files have been written to: /cygdrive/d/ParallelComputing/Coding/Test1/src/cmake-build-debug
