@@ -33,7 +33,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -82,6 +82,9 @@
       <workItem from="1571186882971" duration="4616000" />
       <workItem from="1571275355692" duration="8982000" />
       <workItem from="1571358571315" duration="10006000" />
+      <workItem from="1573776019341" duration="10000" />
+      <workItem from="1574217470516" duration="651000" />
+      <workItem from="1574219365409" duration="24000" />
     </task>
     <servers />
   </component>
