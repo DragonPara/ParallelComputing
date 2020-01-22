@@ -1,45 +1,25 @@
 # MPI环境管理函数
 
   * MPI_Init
-
   * MPI_Comm_size
-
   * MPI_Comm_rank
-
   * MPI_Abort
-
   * MPI_Get_processor_name
-
   * MPI_Initialized
-
   * MPI_Wtime
-
   * MPI_Wtick
-
   * MPI_Finalize
-
 # 点对点通信
-
 ## 阻塞消息通信函数
-
   * MPI_Send
-
   * MPI_Recv
-
   * MPI_Ssend
-
   * MPI_Bsend
-
   * MPI_Buffer_attach, MPI_Buffer_detach
-
   * MPI_Rsend
-
   * MPI_Sendrecv
-
   * MPI_Wait, MPI_Waitany, MPI_Waitall, MPI_Waitsome
-
   * MPI_Probe
-
 ## 非阻塞消息通信函数
   * MPI_Isend
   * MPI_Irecv
@@ -69,33 +49,19 @@
 
 # 组和通讯因子管理函数
   * MPI_Comm_group
-
   * MPI_Group_rank
-
   * MPI_Group_size
-
   * MPI_Group_excl
-
   * MPI_Group_incl
-
   * MPI_Group_intersection
-
   * MPI_Group_union
-
   * MPI_Group_difference
-
   * MPI_Group_compare
-
   * MPI_Group_free
-
   * MPI_Comm_create
-
   * MPI_Comm_dup
-
   * MPI_Comm_compare
-
   * MPI_Comm_free
-
 # 虚拟拓扑函数
   * MPI_Cart_coords
   * MPI_Cart_create
