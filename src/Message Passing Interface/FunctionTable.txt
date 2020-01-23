@@ -1,5 +1,4 @@
-# MPI环境管理函数
-
+﻿# MPI环境管理函数
 * MPI_Init
 * MPI_Comm_size
 * MPI_Comm_rank
