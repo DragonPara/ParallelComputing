@@ -1,0 +1,12 @@
+PCIe Peripheral Component Interconnect express bus 
+外围组件互连快速总线
+
+支持CUDA的NVIDIA GPU
+Tesla 内存为纠错内存(Error-correcting code memory: 简称为 ECC内存)
+Quadro 支持高速 OpenGL(Open Graphics Library)渲染
+GeFore 无纠错内存
+Jetson 嵌入式设备中的GPU
+
+计算能力 compute capability
+
+计算能力和性能不是简单的正比关系
