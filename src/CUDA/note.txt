@@ -10,3 +10,10 @@ Jetson 嵌入式设备中的GPU
 计算能力 compute capability
 
 计算能力和性能不是简单的正比关系
+
+如果读者的系统中有多个 GPU，而且只需要使用某个特定的 GPU（比如两个之中更强大的那个），
+则可以通过设置环境变量 CUDA_VISIBLE_DEVICES 的值在运行 CUDA 程序之前选定
+一个 GPU。假如读者的系统中有编号为 0 和 1 的两个 GPU，而读者想在 1 号 GPU 运
+行 CUDA 程序，则在Linux中可以用如下命令设置环境变量：
+$ export CUDA_VISIBLE_DEVICES=1
+这样设置的环境变量在当前 shell session 及其子进程中有效。
