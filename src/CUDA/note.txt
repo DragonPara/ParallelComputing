@@ -17,3 +17,9 @@ Jetson 嵌入式设备中的GPU
 行 CUDA 程序，则在Linux中可以用如下命令设置环境变量：
 $ export CUDA_VISIBLE_DEVICES=1
 这样设置的环境变量在当前 shell session 及其子进程中有效。
+
+$ sudo nvidia-smi -g GPU_ID -dm 0 # 设置为 WDDM 模式
+WDDM Windows Display Driver Model 窗口显示驱动模式
+$ sudo nvidia-smi -g GPU_ID -dm 1 # 设置为 TCC 模式
+TCC Tesla Compute Cluster 特斯拉计算集群
+
