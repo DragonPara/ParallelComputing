@@ -23,6 +23,9 @@ WDDM Windows Display Driver Model 窗口显示驱动模式
 $ sudo nvidia-smi -g GPU_ID -dm 1 # 设置为 TCC 模式
 TCC Tesla Compute Cluster 特斯拉计算集群
 
+$ sudo nvidia-smi -i 0 -c 0 # 默认模式
+$ sudo nvidia-smi -i 0 -c 1 # 独占进程模式
+
 __global__ void function_name(){}
 
 调用：function_name<<<grid_size, block_size>>>(args)
@@ -33,3 +36,17 @@ blockDim.x = block_size
 blockIdx.x 范围 0~grid_size 表示当前网格的号
 threadIdx.x范围 0~block_size 表示所属网格中自己的线程号
 blockIdx.x和threadIdx.x共同定位线程
+
+两种定位线程的方法
+int bid = blockIdx.z * gridDim.x * gridDim.y 
+	+blockIdx.y * gridDim.x 
+	+ blockIdx.x;
+
+int nx = blockDim.x * blockIdx.x + threadIdx.x;
+int ny = blockDim.y * blockIdx.y + threadIdx.y;
+int nz = blockDim.z * blockIdx.z + threadIdx.z;
+两种定位的方式，一种继续使用x,y,z坐标，一种计算出当前线程是所有线程中的第几个线程
+
+网格大小在x,y和z三个方向的最大允许值分别为2的31次方-1，65535(2的16次方-1),65535
+线程块大小在 x、y 和 z 三个方向的最大允许值分别为 1024、1024 和 64
+但一个线程最多有1024个线程,即blockDim.x*blockDim.y*blockDim.z<=1024
