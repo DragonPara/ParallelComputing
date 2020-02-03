@@ -23,3 +23,13 @@ WDDM Windows Display Driver Model 窗口显示驱动模式
 $ sudo nvidia-smi -g GPU_ID -dm 1 # 设置为 TCC 模式
 TCC Tesla Compute Cluster 特斯拉计算集群
 
+__global__ void function_name(){}
+
+调用：function_name<<<grid_size, block_size>>>(args)
+
+内建变量，就是不用你说自己就建好了，先说四个
+gridDim.x = grid_size
+blockDim.x = block_size
+blockIdx.x 范围 0~grid_size 表示当前网格的号
+threadIdx.x范围 0~block_size 表示所属网格中自己的线程号
+blockIdx.x和threadIdx.x共同定位线程
