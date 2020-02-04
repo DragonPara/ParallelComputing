@@ -18,7 +18,6 @@ int main(void)
     {
         x[n] = a;
         y[n] = b;
-        z[n] = c;
     }
     add(x, y, z, N);
     check(z, N);
