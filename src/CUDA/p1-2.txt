@@ -50,3 +50,24 @@ int nz = blockDim.z * blockIdx.z + threadIdx.z;
 网格大小在x,y和z三个方向的最大允许值分别为2的31次方-1，65535(2的16次方-1),65535
 线程块大小在 x、y 和 z 三个方向的最大允许值分别为 1024、1024 和 64
 但一个线程最多有1024个线程,即blockDim.x*blockDim.y*blockDim.z<=1024
+
+编译选项
+单个：arch=compute_XY, code=sm_ZW
+多个：
+-gencode arch=compute_30, code=sm_30
+-gencode arch=compute_60, code=sm_60
+虚拟架构arch, 真实架构 code
+
+-arch=sm_XY
+等价于：
+-gencode arch=compute_XY, code=sm_XY
+-gencode arch=compute_XY, code=compute_XY
+可以适应之后的显卡
+
+如果不指定计算架构，则会使用默认架构：
+CUDA 6.0->计算能力1.0
+CUDA 6.5~8.0->计算能力2.0
+CUDA 9.0~10.2->计算能力3.0
+
+GPU 中直接向屏幕打印信息是从计算能力 2.0 才开
+始支持的功能。
