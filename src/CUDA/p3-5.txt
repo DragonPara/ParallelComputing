@@ -32,3 +32,12 @@ memcheck工具可以省略 --tool memcheck
 $ cuda-memcheck [options] app_name [options]
 
 如 $ cuda-memcheck ./a.out
+
+$ nvprof ./a.out
+如果用上述命令时遇到了类似如下的错误提示：
+54 CUDA 编程：基础与实践
+Unable to profile application. Unified Memory profiling failed
+则可以尝试将运行命令换为：
+$ nvprof --unified-memory-profiling off ./a.out
+
+尽量避免 数据在GPU和CPU之间的传输 过多
