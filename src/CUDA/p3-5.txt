@@ -1,0 +1,34 @@
+$export CUDA_LAUNCH_BLOCKING=1
+这样设置之后，所有核函数的调用都不再是异步的， 而是同步的。
+会影响程序性能，
+
+error.cuh:
+
+#pragma once
+#include<stdio.h>
+
+#define CHECK(call)\
+do\
+{
+    const cudaError_t error_code = call;\
+    if(error_code!=cudaSuccess){\
+        printf("CUDA Error:\n");\
+        printf(" File: %s\n",__FILE__);\
+        printf(" Line: %d\n",__LINE__);\
+        printf(" Error code: %d\n",error_code);\
+        printf(" Error text: %s\n",cudaGetErrorString(error_code));\
+        exit(1);\
+    }\
+}while(0);
+
+CUDA自带检查工具集 CUDA-MEMCHECK
+$ cuda-memcheck --tool memcheck [options] app_name [options]
+$ cuda-memcheck --tool racecheck [options] app_name [options]
+$ cuda-memcheck --tool initcheck [options] app_name [options]
+$ cuda-memcheck --tool synccheck [options] app_name [options]
+
+memcheck工具可以省略 --tool memcheck
+变为:
+$ cuda-memcheck [options] app_name [options]
+
+如 $ cuda-memcheck ./a.out
