@@ -40,4 +40,10 @@ Unable to profile application. Unified Memory profiling failed
 则可以尝试将运行命令换为：
 $ nvprof --unified-memory-profiling off ./a.out
 
-尽量避免 数据在GPU和CPU之间的传输 过多
+提高GPU加速比的办法：
+减少主机与设备之间的数据传输；
+提高核函数的算术强度；
+增大核函数的并行规模。
+
+一块 GPU 一共可以驻留几万到几十万个线程。如果一个核函数中定义的线程数目远小于这个数的话，就不可能
+得到很高的加速比。
