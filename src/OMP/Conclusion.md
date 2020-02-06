@@ -116,7 +116,7 @@ int main(){
     {
         test();
     }
-    int t2 = omp_get_wtime();
+    double t2 = omp_get_wtime();
     printf("totalTime:%lf",t2-t1);
 	test();
     return 0;
