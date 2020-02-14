@@ -1,0 +1,2 @@
+一个线程束中的线程拥有同一个程序计数器（program counter），但
+各自有不同的寄存器状态（register state）

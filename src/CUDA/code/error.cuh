@@ -9,7 +9,7 @@ do{\
         printf("Line:       %d\n",__LINE__);\
         printf("Error code:   %d\n",error_code);\
         printf("Error text:   %s\n",\
-        cudaGetErrorString(error_code));\
+            cudaGetErrorString(error_code));\
         exit(1);\
     }\
 }while(0)}//如果不用do while，将可能导致一些错误
