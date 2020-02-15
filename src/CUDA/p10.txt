@@ -26,12 +26,20 @@ void __syncwarp(unsigned mask = 0xffffffff);
 
 线程束表决函数
 unsigned __ballot_sync(unsigned mask, int predicate)   //ballot 投票
+	返回值只看当前线程的predicate和mask,
+	该线程参与，并且predicate=1，返回值为mask
+		          predicate=0, 返回值为mask相应位置变0后的结果
 unsigned __all_sync(unsigned mask, int predicate);
+	所有参与的线程predicate都为1时，返回1，否则返回0
 unsigned __any_sync(unsigned mask, int predicate);
+	只要参与的线程有一个的predicate为1，就返回1，全0返回0
 
 线程束洗牌函数
-T __shfl_sync(unsigned mash,T v, int srcLane, int w = warpSize)
+T __shfl_sync(unsigned mask,T v, int srcLane, int w = warpSize)
+	返回标号为srcLane的线程的v的值，广播式数据交换
 T __shfl_up_sync(unsigned mask, T v, unsigned d, int w = warpSize)
+	数据向上平移，标号为t的参与线程返回标号为 t-d 线程中的 v 的值。
+	满足t-d<0的返回当前线程中 v 的值
 T __shfl__down_sync(unsigned mask, T v, unsigned d, int w = warpSize)
 T __shlf__xor_sync(unsigned mask,unsigned d, int w = warpSize)
 
