@@ -41,7 +41,17 @@ T __shfl_up_sync(unsigned mask, T v, unsigned d, int w = warpSize)
 	数据向上平移，标号为t的参与线程返回标号为 t-d 线程中的 v 的值。
 	满足t-d<0的返回当前线程中 v 的值
 T __shfl__down_sync(unsigned mask, T v, unsigned d, int w = warpSize)
-T __shlf__xor_sync(unsigned mask,unsigned d, int w = warpSize)
-
+	数据向下平移，和__shfl_up_sync恰好概念相反
+T __shlf__xor_sync(unsigned mask,T v, int laneMask, int w = warpSize)
+	返回t^laneMask中 v 的值
 w 只能取 2 4 8 16 32，表示逻辑线程束大小
 mask 默认为 0xffffffff,32位二进制，1表示该线程参与计算，0代表不参与
+
+这里所有的线程束内的基本函数(都以_sync结尾)，都具有隐式同步功能。
+
+从伏特架构开始，在使用这些函数时必须使用由 CUDA 9 引入的
+新版本，不要再使用原来的没有 _sync 的版本。
+
+
+在使用协作组功能时，需要在相关源文件包含如下头文件
+#include<cooperative_groups.h>
