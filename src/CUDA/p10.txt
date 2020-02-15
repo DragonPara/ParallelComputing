@@ -23,3 +23,14 @@ eg:
 void __syncwarp(unsigned mask = 0xffffffff);
 如果要排除一些线程，可以用一个对应的二进制位为 0 的掩码参数。
 例如，掩码 0xfffffffe 代表排除第 0 号线程。
+
+线程束表决函数
+unsigned __ballot_sync(unsigned mask, int predicate);
+int __all_sync(unsigned mask, int predicate);
+int __any_sync(unsigned mask, int predicate);
+
+线程束洗牌函数
+T __shfl_sync(unsigned mash,T v, int srcLane, int w = warpSize)
+T __shfl_up_sync(unsigned mask, T v, unsigned d, int w = warpSize)
+T __shfl__down_sync(unsigned mask, T v, unsigned d, int w = warpSize)
+T __shlf__xor_sync(unsigned mask,unsigned d, int w = warpSize)
