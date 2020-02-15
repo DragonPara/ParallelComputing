@@ -34,3 +34,6 @@ T __shfl_sync(unsigned mash,T v, int srcLane, int w = warpSize)
 T __shfl_up_sync(unsigned mask, T v, unsigned d, int w = warpSize)
 T __shfl__down_sync(unsigned mask, T v, unsigned d, int w = warpSize)
 T __shlf__xor_sync(unsigned mask,unsigned d, int w = warpSize)
+
+w 只能取 2 4 8 16 32，表示逻辑线程束大小
+mask 默认为 0xffffffff,32位二进制，1表示该线程参与计算，0代表不参与
