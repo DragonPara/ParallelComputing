@@ -55,3 +55,6 @@ mask 默认为 0xffffffff,32位二进制，1表示该线程参与计算，0代表不参与
 
 在使用协作组功能时，需要在相关源文件包含如下头文件
 #include<cooperative_groups.h>
+除此之外，还要注意所有与协作组相关的数据类型和函数都定义在
+名字空间(namespace) cooperative_groups下
+using namespace cooperative_group;
