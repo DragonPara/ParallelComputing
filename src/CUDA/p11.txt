@@ -15,3 +15,22 @@ cudaStreamDestroy(stream_1);
 	cudaStream_t *stream_1;
 	cudaStreamCreate(stream_1); // 注意要传流的地址
 	cudaStreamDestroy(*stream_1);
+
+等待流结束
+cudaError_t cudaStreamSynchronize(cudaStream_t stream);
+检查流是否完成，完成返回cudaSuccess，否则返回cudaErrorNotReady
+cudaError_t cudaStreamQuery(cudaStream_t stream);
+
+同一个 CUDA 流中的 CUDA 操作在设备中是顺序执行的，
+故同一个 CUDA 流中的核函数也必须在设备中顺序执行
+但主机发出一个核函数调用的命令之后都立刻获得程序控制权
+
+调用核函数的三种方式
+my_kernel<<<N_grid, N_block>>>(函数参数);
+my_kernel<<<N_grid, N_block, N_shared>>>(函数参数);
+my_kernel<<<N_grid, N_block, N_shared, stream_id>>>(函数参数);
+
+如果要使用非默认流，不可以省去参数N_shared, 如果不需要共享内存，可以传0
+my_kernel<<<N_grid, N_block, 0, stream_id>>>(函数参数); // 正确
+不能用如下调用方式：
+my_kernel<<<N_grid, N_block, stream_id>>>(函数参数); // 错误
