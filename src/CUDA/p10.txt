@@ -58,3 +58,21 @@ mask 默认为 0xffffffff,32位二进制，1表示该线程参与计算，0代表不参与
 除此之外，还要注意所有与协作组相关的数据类型和函数都定义在
 名字空间(namespace) cooperative_groups下
 using namespace cooperative_group;
+
+thread_group g32 = tiled_partition(this_thread_block(), 32);
+thread_group g4 = tiled_partition(g32, 4);
+当这种线程组的大小在编译期间就已知时，可以用如下模板化的版本（可能更加高效）
+进行定义：
+thread_block_tile<32> g32  = tiled_partition<32>(this_thread_block());
+thread_block_tile<4> g4 = tiled_patition<4>(this_thread_block());
+
+这样定义的线程组一般称为线程块片（thread block tile）。线程块片还额外地定义了如下函
+数（类似于线程束内的基本函数）：
+unsigned __ballot_sync(int predicate);
+int __all_sync(int predicate);
+int __any_sync(int predicate);
+T __shfl_sync(T v, int srcLane);
+T __shfl_up_sync(T v, unsigned d);
+T __shfl_down_sync(T v, unsigned d);
+T __shfl_xor_sync(T v, int laneMask);
+没有了掩码mask,所以所有的线程必须参与运算。
