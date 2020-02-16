@@ -1,0 +1,17 @@
+核函数外部的并行：
+1.核函数计算与数据传输之间的并行
+2.主机计算与数据传输之间的并行
+3.不同的数据传输之间的并行
+4.核函数计算与主机计算之间的并行
+5.不同核函数之间的并行
+
+创建一个CUDA流
+cudaError_t cudaStreamDestory(cudaStream_t *);
+
+cudaStream_t stream_1;
+cudaStreamCreate(&stream_1); // 注意要传流的地址
+cudaStreamDestroy(stream_1);
+错误方法：
+	cudaStream_t *stream_1;
+	cudaStreamCreate(stream_1); // 注意要传流的地址
+	cudaStreamDestroy(*stream_1);
