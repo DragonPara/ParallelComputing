@@ -75,3 +75,4 @@ Stream 2：            H2D -> KER -> D2H
 Stream 3：                         H2D -> KER -> D2H
 Stream 4：                                    H2D -> KER -> D2H
 可见，虽然两个流中的H2D或D2H都不能并发，但H2D可以和D2H并发
+同向不可并发
