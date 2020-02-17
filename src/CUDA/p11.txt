@@ -39,3 +39,16 @@ my_kernel<<<N_grid, N_block, stream_id>>>(函数参数); // 错误
 在计算能力为 
 3.0、3.2、3.5、3.7、5.0、5.2、5.3、6.0、6.1、6.2、7.0 和 7.5 的 GPU 中，该上限的值分别为 
 16、  4、  32、 32、 32、32、 16、128、32、16、128 和 128
+
+异步传输由GPU中的DMA（Direct Memory Access直接内存访问）直接实现
+cudaError_t cudaMemcpyAsync
+(
+	void *dst,
+	const void *src,
+	size_t count;
+	enum cudaMemcpyKind kind,
+	cudaStream_t stream
+);
+cudaMemcpyAsync之比cudaMemcpy多一个参数 cudaStream_t
+关于enum，C++的派生类型，可以通过一些操作自动赋值
+https://www.runoob.com/w3cnote/cpp-enum-intro.html
