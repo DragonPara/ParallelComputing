@@ -34,3 +34,8 @@ my_kernel<<<N_grid, N_block, N_shared, stream_id>>>(函数参数);
 my_kernel<<<N_grid, N_block, 0, stream_id>>>(函数参数); // 正确
 不能用如下调用方式：
 my_kernel<<<N_grid, N_block, stream_id>>>(函数参数); // 错误
+
+单个GPU中能够并发执行的核函数个数的上限：
+在计算能力为 
+3.0、3.2、3.5、3.7、5.0、5.2、5.3、6.0、6.1、6.2、7.0 和 7.5 的 GPU 中，该上限的值分别为 
+16、  4、  32、 32、 32、32、 16、128、32、16、128 和 128
