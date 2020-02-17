@@ -52,3 +52,26 @@ cudaError_t cudaMemcpyAsync
 cudaMemcpyAsync之比cudaMemcpy多一个参数 cudaStream_t
 关于enum，C++的派生类型，可以通过一些操作自动赋值
 https://www.runoob.com/w3cnote/cpp-enum-intro.html
+
+只有不可分页中的内存可以实现异步操作
+申请不可分页内存的函数
+	cudaError_t cudaMallocHost(void **dst, size_t size);
+	cudaError_t cudaHostAlloc(void** dst, size_t size, size_t flags);
+当cudaHostAlloc的第三个参数为cudaHostAllocDefault时，将等效于cudaMallocHost
+
+释放函数：
+cudaError_t cudaFreeHost(void* dst);
+如果错用free()函数，将导致运行时错误
+
+两个流中的执行方式
+Stream 1：H2D -> KER -> D2H
+Stream 2：            H2D -> KER -> D2H
+可见两个流中的 H2D 操作不能并发地执行（受硬件资源的限制）
+      两个流中的D2H操作同样不能并发的执行
+如果上述中的单项操作时间相同，则并行后的加速比为6/4=1.5被
+
+Stream 1：H2D -> KER -> D2H
+Stream 2：            H2D -> KER -> D2H
+Stream 3：                         H2D -> KER -> D2H
+Stream 4：                                    H2D -> KER -> D2H
+可见，虽然两个流中的H2D或D2H都不能并发，但H2D可以和D2H并发
