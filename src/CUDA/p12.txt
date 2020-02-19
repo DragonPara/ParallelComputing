@@ -58,3 +58,18 @@ eg:
 	1 in host
 	1 in device
 	1 in device
+
+统一内存的优化：
+	避免缺页异常、保持数据的局部性，让相关数据尽量靠近对应的处理器
+手动方式：
+	cudaError_t cudaMemPrefetchAsync
+	(
+		const void *devPtr,//数组地址
+		size_t count,
+		int dstDevice,//设备号
+		cudaStream_t stream//默认流为NULL
+	);
+	作用，将count大小的数组移动到设备上。
+查看当前主机线程使用的设备号
+cudaGetDevice(int *number)
+设备号将传给number
