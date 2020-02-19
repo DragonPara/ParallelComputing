@@ -7,3 +7,54 @@
 统一内存是一种虚拟储存器，CPU和GPU都可访问
 
 从帕斯卡架构开始的GPU具有精细的缺页异常处理(page-fault handling)能力
+
+在统一内存之前，还有一种零复制内存（zero-copy memory）
+零复制内存只能存在主机上，统一内存在主机和设备上找一个最合适的地方
+
+在具有 IBM Power9 和 NVLink 的系统，伏特架构的 GPU 支持设备访问任何主机内存，
+包括用 malloc 分配的动态数组和在栈上分配的静态数组。
+
+统一内存优势
+	1 简化编程
+	2 可能会带来比手动移动数据更好的性能。就近的数据存放
+	3 允许超量分配。如果GPU不够用，会存放在主机上。（需要帕斯卡及以上架构以及Linux操作系统）
+
+动态统一内存
+cudaError_t cudaMallocManaged
+(
+void **devPtr,
+size_t size,
+unsigned flags = 0
+);
+flags的默认值为cudaMemAttachGlobal,
+代表分配的全局内存可有任何设备通过任何CUDA流访问，
+另一个可取的值是cudaMemAttachHost,(待查)
+申请的内存用cudaFree释放。
+只能在主机端通过cudaMallocManaged统一分配内存，不能在核函数中使用该函数
+
+在第一代统一内存中，主机和设备不能并发的访问统一内存。
+第二代可以，帕斯卡以上，Linux系统。
+
+目前不管用什么 GPU，在 Windows 系统中都只能用第一代统一内存的功能。（2020/2/19）
+
+
+静态统一内存
+__device__ __managed__ int ret[1000];
+or
+__managed__ __device__ int ret[1000];
+
+eg:
+	__managed__ __device__ int a=1;
+	__global__ void init()
+	{
+		printf("%d in device\n",a);
+	}
+	int main(void)
+	{
+    		printf("%d in host\n",a);
+		init<<<1,2>>>();
+	}
+将输出
+	1 in host
+	1 in device
+	1 in device
