@@ -32,7 +32,7 @@ flags的默认值为cudaMemAttachGlobal,
 申请的内存用cudaFree释放。
 只能在主机端通过cudaMallocManaged统一分配内存，不能在核函数中使用该函数
 
-在第一代统一内存中，主机和设备不能并发的访问统一内存。
+在第一代统一内存中，主机和设备不能并发的访问统一内存。cudaDeviceSynchronize()同步host与device
 第二代可以，帕斯卡以上，Linux系统。
 
 目前不管用什么 GPU，在 Windows 系统中都只能用第一代统一内存的功能。（2020/2/19）
