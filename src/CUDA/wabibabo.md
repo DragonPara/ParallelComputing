@@ -188,7 +188,7 @@ __global__ void kernel(){
 }
 ```
 
-+++
+***
 
 <h3>CUDA Stream</h3>
 Let's see the functions!
