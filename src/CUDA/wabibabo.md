@@ -14,7 +14,6 @@ or
 
 <h3>Hello World</h3>
 <h4>Hello.cu</h4>
-
 ```c++
 #include<stdio.h>
 __global__ void GPU_print(){
@@ -193,6 +192,38 @@ __global__ void kernel(){
 <h3>CUDA Stream</h3>
 Let's see the functions!
 
-**type:** cudaStream_t
+**type:** cudaStream_t  stream
 
-cudaStreamCreate()
+cudaStreamCreate(&stream)
+
+cudaStreamDestory(stream)
+
+cudaStreamSynchronize(stream), wait stream finish
+
+cudaStreamQuery(stream), check stream finish or not, **cudaSuccess** or **cudaErrorNotReady**
+
+**run in stream :** `kernel<<<gridSize, blockSize,shared_size,stream>>>();`
+
+cudaMemcpyAsync(
+
+​									void *dst
+
+​									const void *src
+
+​									size_t count
+
+​									enum cudaMemcpyKind kind
+
+​									cudaStream_t stream, if you want to use default stream, by 0
+
+​									)
+
+which datas can be MemcpyAsync ? 
+
+`cudaMallocHost(void**ptr, size_t size)`
+
+`cudaHostAlloc(void**ptr, size_t size,size_t flag)`
+
+if flag==cudaHostAllocDefault, cudaMallocHost equal to cudaHostAlloc
+
+**Free:**`cudaFreeHost(void* ptr)`
