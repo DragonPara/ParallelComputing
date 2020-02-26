@@ -223,7 +223,7 @@ int main(){
 
 look like synchronize, but really without synchronize
 
-[table](原子函数表.md)
+[Table](原子函数表.md)
 
 <h3>CUDA Stream</h3>
 Let's see the functions!
