@@ -1,3 +1,5 @@
+(())
+
 ![1](photo/Store_Sign.png)
 
 # CUDA
@@ -187,7 +189,41 @@ __global__ void kernel(){
 }
 ```
 
+**dynamic unified memory**
+```c++
+double *x,*y;
+const int M=sizeof(double)*10000;
+cudaMallocManaged((void**)&x,M);
+cudaMallocManaged((void**)&y,M);
+*x=1;
+*y=2;
+kernel<<<gridSize,blockSize>>>(x,y);
+```
+**static unified memory**
+
+```c++
+__device__ __managed__ int ret[1000];
+__device__ __managed__ int a;
+int main(){
+    kernel<<<gridSize,blockSize>>>();
+    cudaSynchronize();
+    printf("%d\n",a);
+}
+```
+
+
+
+**Free Memory**
+
+`cudaFree(void* ptr)`
+
 ***
+
+<h3>Atoi operate</h3>
+
+look like synchronize, but really without synchronize
+
+[table](原子函数表.md)
 
 <h3>CUDA Stream</h3>
 Let's see the functions!
@@ -227,3 +263,4 @@ which datas can be MemcpyAsync ?
 if flag==cudaHostAllocDefault, cudaMallocHost equal to cudaHostAlloc
 
 **Free:**`cudaFreeHost(void* ptr)`
+
