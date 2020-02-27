@@ -16,6 +16,7 @@ or
 
 <h3>Hello World</h3>
 <h4>Hello.cu</h4>
+
 ```c++
 #include<stdio.h>
 __global__ void GPU_print(){
@@ -220,7 +221,6 @@ int main(){
 ***
 
 <h3>Atoi operate</h3>
-
 look like synchronize, but really without synchronize
 
 [Table](原子函数表.md)
