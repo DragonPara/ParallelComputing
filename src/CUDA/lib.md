@@ -4,17 +4,17 @@
 
 **namespace:** thrust
 
-**<thrust/device_vector.h>**
+### <thrust/device_vector.h>
 
 `thrust::device_vector<type>a(10,0);`
 
-**<thrust/host_vector.h>**
+### <thrust/host_vector.h>
 
 ```thrust::host_vector<type>a(10,0);```
 
-**<thrust/scan.h>**
+### <thrust/scan.h>
 
-**<thrust/execution_policy.h>**
+### <thrust/execution_policy.h>
 
 ```c++
 thrust::inclusive_scan
@@ -44,4 +44,3 @@ thrust::inclusive_scan(thrust::device,x,x+10,y);
 **But inclusive_scan can't include device elements and host elements at the same function**
 
 ## cuBLAS Basic Linear Algebra Subprograms
-
