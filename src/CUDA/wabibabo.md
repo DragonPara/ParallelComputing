@@ -1,5 +1,3 @@
-
-
 ![1](photo/Store_Sign.png)
 
 # CUDA
@@ -69,8 +67,6 @@ cudaMalloc(
 
 ptr will get some places from Device
 
-
-
 cudaMemcpy(
 
 ​					dst, date to dst
@@ -83,8 +79,6 @@ cudaMemcpy(
 
 ​					)
 
-
-
 cudaDeviceSynchronize()
 
 Wait operate in Device finish
@@ -95,7 +89,7 @@ GPU has lot's of same things with CPU
 
 different kinds of memory is one of the same things.
 
-**dynamic common Element**
+<h5>dynamic common Element</h5>
 
 ```c++
 double *a;
@@ -105,9 +99,9 @@ cudaMemcpy(....);
 kernel<<<gridSize,blockSize>>>(a);
 ```
 
-**static global Element**
-
+<h5>static global Element</h5>
 global and static
+
 
 ```
 __device__ double a[5];
@@ -118,8 +112,7 @@ compiler should know the size of static global Element,and we need't be used by 
 
 needn't `kernel<<<1,1>>>(a);`
 
-**constant Element by arg-way**
-
+<h5>constant Element by arg-way</h5>
 ```c++
 int a=1;
 kernel<<<1,1>>>(a);
@@ -127,7 +120,7 @@ kernel<<<1,1>>>(a);
 
 read-only and max size is 4KB
 
-**constant Element by \_\_constant\_\_**
+<h5>constant Element by __constant__</h5>
 
 ```
 __constant__ int a=1;
@@ -157,8 +150,7 @@ cudaMemcpyToSymbol(
 
 ​											)
 
-**dynamic shared memory**
-
+<h5>dynamic shared memory</h5>
 ```
 __global__ void kernel(){
 	int n=10;
@@ -168,8 +160,7 @@ __global__ void kernel(){
 
 read and write, 64KB per block. same block with same shared memory value
 
-**static shared memory**
-
+<h5>static shared memory</h5>
 outside:
 
 `kernel<<<1,1,sharedMemorySize>>>()`
@@ -180,8 +171,7 @@ inside:
 
 not *a, pointer isn't array
 
-**register memory**
-
+<h5>register memory</h5>
 fast and small
 
 ```c++
@@ -190,7 +180,7 @@ __global__ void kernel(){
 }
 ```
 
-**dynamic unified memory**
+<h5>dynamic unified memory</h5>
 ```c++
 double *x,*y;
 const int M=sizeof(double)*10000;
@@ -200,8 +190,7 @@ cudaMallocManaged((void**)&y,M);
 *y=2;
 kernel<<<gridSize,blockSize>>>(x,y);
 ```
-**static unified memory**
-
+<h5>static unified memory</h5>
 ```c++
 __device__ __managed__ int ret[1000];
 __device__ __managed__ int a;
@@ -212,9 +201,7 @@ int main(){
 }
 ```
 
-
-
-**Free Memory**
+<h5>Free Memory</h5>
 
 `cudaFree(void* ptr)`
 
@@ -263,4 +250,3 @@ which datas can be MemcpyAsync ?
 if flag==cudaHostAllocDefault, cudaMallocHost equal to cudaHostAlloc
 
 **Free:**`cudaFreeHost(void* ptr)`
-
