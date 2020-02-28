@@ -67,3 +67,32 @@ int incy		//y[0],y[incy],y[2*incy],y[3*incy]...
 );
 ```
 
+## cuRand
+
+### head file
+
+`curand.h`
+
+### compiler option
+
+`nvcc -lcurand a.cu`
+
+### Example
+
+```c++
+#include<stdio.h>
+#include<curand.h>
+__global__ void kernel(double *x){
+	printf("%lf\n",*x);
+}
+int  main(){
+	curandGenerator_t generator;
+	curandCreateGenerator(&generator,CURAND_RNG_PSEUDO_DEFAULT);
+	curandSetPseudoRandomGeneratorSeed(generator,1234);//1234: seed, time is a better choice
+	double *g_x;
+	cudaMalloc((void**)&g_x,8);
+	curandGenerateUniformDouble(generator,g_x,1);//1: how many datas
+	kernel<<<1,3>>>(g_x);
+}
+```
+
