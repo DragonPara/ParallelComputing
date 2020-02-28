@@ -41,4 +41,7 @@ cudaMalloc((void**)&x,sizeof(int)*10);
 thrust::inclusive_scan(thrust::device,x,x+10,y);
 ```
 
-**But inclusive_scan can't include device elements and host element at the same function**
+**But inclusive_scan can't include device elements and host elements at the same function**
+
+## cuBLAS Basic Linear Algebra Subprograms
+
