@@ -40,4 +40,3 @@ and launch `mpiexec -n number ./x`
   * `source`the data from which processor.
   * `common`MPI_COMM_WORLD is enough
 <text>The first time, I think the source is data, no no no,source is a number of processor.</text>
-
