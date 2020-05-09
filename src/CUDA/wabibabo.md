@@ -177,6 +177,7 @@ fast and small
 ```c++
 __global__ void kernel(){
     int a=1;
+    const int b=1;
 }
 ```
 
