@@ -1,0 +1,30 @@
+download from website mpi*.tar.gz
+
+tar zxvf mpi*.tar.gz
+
+cd mpi*
+./configure -prefix=/usr/local/mpich
+make 
+sudo make install
+
+PATH=$PATH:/usr/local/mpich/bin
+export PATH
+source /etc/profile
+
+test mpich
+main.c:
+
+#include<mpi.h>
+#include<stdio.h>
+int main(int argc,char **argv){
+    MPI_Init(&argc,&argv);
+    int rank,size;
+    MPI_Comm_rank(MPI_COMM_WORLD,&rank);
+    MPI_Comm_size(MPI_COMM_WORLD,&size);
+    printf("%d\t%d\n",rank,size);
+    MPI_Finalize();
+}
+mpicc main.c
+mpiexec -n 5 ./a.out
+or 
+mpirun -np 5 ./a.out
