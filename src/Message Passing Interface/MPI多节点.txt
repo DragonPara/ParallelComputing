@@ -1,0 +1,67 @@
+多台主机上要有相同账号密码的账户
+
+
+通信建立：
+
+sudo权限修改/etc/hosts
+添加所有子节点
+如 192.168.0.106 node1 
+     192.168.0.107 node2
+
+关闭防火墙：
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
+
+进入 ~/.ssh
+
+如果没有，先链接一下自己：ssh localhost
+
+进入之后
+
+输入ssh-keygen -t rsa，生成公钥
+
+将生成的id_rsa.pub装入 authorized__key,用于储存所有节点的公钥
+
+cat id_rsa.pub >> authorized_key
+
+其他节点先生成公钥，再传给主节点
+
+scp id_rsa.pub node1:~/.ssh/node2.pub  防止重名，文件在主节点上的名字为node2.pub
+
+归入 authorized_key: 
+
+cat node2.pub >>authorized_key
+
+其他节点也相同。
+最后将authorized_key都拷贝到其他节点上，可以用scp
+
+安装MPI:
+去官网下载MPICH
+解压 tar zxvf filename.tar.gz
+进入cd filename
+安装三部曲：
+./configure -prefix=/usr/local/mpi/ #提前安装好所需编译器：gcc-c++和fortran的编译器
+make
+sudo make install
+
+添加进用户的环境变量：
+nano ~/.bashrc
+
+添加下面两行：
+PATH=$PATH:/usr/local/mpi/bin
+export PATH
+保存
+出来之后source ~/.bashrc使修改生效
+mpicc和mpiexec 就都可以用啦
+
+MPI多节点运行：
+创建 servers文件
+$nano servers
+
+node1:3#node1执行三个进程
+node2:3#node2执行三个进程
+node3:3#node3执行三个进程
+保存
+将编译好的可执行文件放入子节点的相同目录下
+执行mpiexec -n 9 -f ./servers ./a.out
+完成多节点运行
