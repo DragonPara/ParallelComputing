@@ -1,0 +1,39 @@
+sudo apt install vim
+sudo apt install gcc
+sudo apt install g++
+sudo apt install gfortran
+sudo apt install ssh
+sudo apt install make
+
+cd 解压后的路径
+./configure --prefix=想要安装到的路径
+make
+make install
+
+mpi通信的前提是ssh免密通信
+进入各节点生成公钥私钥，发送至主节点，
+合并为authorized_keys后，主节点将其发送到各个子节点
+ssh localhost
+cd ~/.ssh
+ssh-keygen -t rsa
+cat id_rsa.pub > authorized_keys
+
+ssh node1
+cd ~/.ssh
+ssh-keygen -t rsa
+scp id_rsa.pub host:~/.ssh/node1
+
+ssh node2
+cd ~/.ssh
+ssh-keygen -t rsa
+scp id_rsa.pub host:~/.ssh/node2
+
+ssh host
+cd ~/.ssh
+cat node1>> authorized_keys
+cat node2>> authorized_keys
+scp authorized_keys node1:~/.ssh/
+scp authorized_keys node2:~/.ssh/
+
+进入各节点，关闭防火墙
+sudo ufw stop
