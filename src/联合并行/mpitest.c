@@ -1,7 +1,7 @@
 #include<mpi.h>
 #include<omp.h>
 #include<stdio.h>
-int main(){
+int main(void){
     MPI_Init( NULL , NULL);
     int rank,size;
     MPI_Comm_rank( MPI_COMM_WORLD , &rank);
