@@ -45,9 +45,9 @@ thrust::inclusive_scan(thrust::device,x,x+10,y);
 
 ## cuBLAS Basic Linear Algebra Subprograms
 
-### head file
+  * head file
 
-`cublas_v2.h`
+    `cublas_v2.h`
 
 ### compiler option
 
@@ -69,9 +69,9 @@ int incy		//y[0],y[incy],y[2*incy],y[3*incy]...
 
 ## cuRand
 
-### head file
+  * head file
 
-`curand.h`
+    `curand.h`
 
 ### compiler option
 
@@ -95,4 +95,3 @@ int  main(){
 	kernel<<<1,3>>>(g_x);
 }
 ```
-
