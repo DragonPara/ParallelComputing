@@ -16,7 +16,7 @@ You need three file  to get it at least.
 
 ## code
 
-  * main.c
+**main.c**
 
   ```c
   #include<stdio.h>
@@ -36,7 +36,7 @@ You need three file  to get it at least.
   }
   ```
 
-  * sub.f90
+**sub.f90**
 
   ```fortran
   subroutine Sub_Fortran(NumInt,NumFloat,NumDouble)
@@ -55,7 +55,7 @@ You need three file  to get it at least.
   end function
   ```
 
-  * var.cu
+**var.cu**
 
   ```c
   #define  _CRT_SECURE_NO_WARNINGS
@@ -83,7 +83,7 @@ You need three file  to get it at least.
   }
   ```
 
-  * makefile
+**makefile**
 
   ```makefile
   main:main.o sub.o
