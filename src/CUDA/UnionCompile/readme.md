@@ -97,4 +97,4 @@ You need three file  to get it at least.
   	rm *.o main
   ```
 
-  * If you use gfortran to compile main.o+sub.o, link to cuda lib, if you use nvcc to compile, link to fortran lib.
+    * If you use gfortran to compile main.o+sub.o, link to cuda lib, if you use nvcc to compile, link to fortran lib.
