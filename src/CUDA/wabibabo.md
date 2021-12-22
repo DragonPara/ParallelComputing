@@ -102,7 +102,6 @@ kernel<<<gridSize,blockSize>>>(a);
 <h5>static global Element</h5>
 global and static
 
-
 ```
 __device__ double a[5];
 __device__ int b;
