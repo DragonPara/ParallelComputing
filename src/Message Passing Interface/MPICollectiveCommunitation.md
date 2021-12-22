@@ -34,7 +34,7 @@ and launch `mpiexec -n number ./x`
 ## BroadCast
 
 `int MPI_Bcast(void *buf, int count, MPI_Datatype datatype, int source, MPI_Comm common)`
-  * `*buf`The data's first location, the value is What you want to BroadCast to all the processors.
+  * `buf`The data's first location, the value is What you want to BroadCast to all the processors.
   * `count`How much data will be broadcast.
   * `datatype`data's type
   * `source`the data from which processor.
