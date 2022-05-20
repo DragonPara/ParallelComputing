@@ -3,6 +3,8 @@
 
 well done is quickly done
 
-## OpenMped
-## MPIed
-## CUDAing
+## OpenMp
+## MPI
+## CUDA
+
+This repository is built for daily study notes. 
