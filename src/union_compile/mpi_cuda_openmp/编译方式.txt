@@ -1,0 +1,9 @@
+先将cuda 文件编译到 .o
+nvcc -c k.cu
+得到k.o
+
+用mpicc将两个文件连起来
+mpicc -fopenmp -I /usr/local/cuda/include  -L /usr/local/cuda/lib64 -lcudart mpiTest.c k.o
+
+作业提交
+bsub -n 1 -gpu num=2:mode=exclusive_process -q HPC.S1.GPU.X795.sha -o result1.txt mpiexec -np 1 ./a.out
