@@ -1,1 +1,0 @@
-/usr/bin/gfortran.exe -O3 -DNDEBUG -O3 -Wl,--enable-auto-import CMakeFiles/main.dir/main.f90.o CMakeFiles/main.dir/api.f90.o CMakeFiles/main.dir/func.c.o -o main.exe -Wl,--out-implib,libmain.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

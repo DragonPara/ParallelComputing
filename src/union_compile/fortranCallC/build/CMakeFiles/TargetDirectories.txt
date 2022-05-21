@@ -1,3 +1,0 @@
-/home/dragon/ParallelComputing/src/union_compile/fortranCallC/build/CMakeFiles/rebuild_cache.dir
-/home/dragon/ParallelComputing/src/union_compile/fortranCallC/build/CMakeFiles/edit_cache.dir
-/home/dragon/ParallelComputing/src/union_compile/fortranCallC/build/CMakeFiles/main.dir
