@@ -26,7 +26,7 @@ void hello(){
   
 ***compile and link main procedure***
 
-  `gcc main.c -L. -lp1`
+  `gcc main.c -L. -lp1 -o main`
   
 run main
 ```shell
