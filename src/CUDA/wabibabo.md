@@ -151,6 +151,7 @@ cudaMemcpyToSymbol(
 ​											)
 
 <h5>dynamic shared memory</h5>
+
 ```
 __global__ void kernel(){
 	int n=10;
@@ -182,6 +183,7 @@ __global__ void kernel(){
 ```
 
 <h5>dynamic unified memory</h5>
+
 ```c++
 double *x,*y;
 const int M=sizeof(double)*10000;
@@ -192,6 +194,7 @@ cudaMallocManaged((void**)&y,M);
 kernel<<<gridSize,blockSize>>>(x,y);
 ```
 <h5>static unified memory</h5>
+
 ```c++
 __device__ __managed__ int ret[1000];
 __device__ __managed__ int a;
