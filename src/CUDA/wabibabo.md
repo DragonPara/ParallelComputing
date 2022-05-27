@@ -121,7 +121,7 @@ read-only and max size is 4KB
 
 <h5>constant Element by __constant__</h5>
 
-```
+```c++
 __constant__ int a=1;
 ```
 
