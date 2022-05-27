@@ -112,6 +112,7 @@ compiler should know the size of static global Element,and we need't be used by 
 needn't `kernel<<<1,1>>>(a);`
 
 <h5>constant Element by arg-way</h5>
+
 ```c++
 int a=1;
 kernel<<<1,1>>>(a);
