@@ -15,7 +15,7 @@ int main(void)
 {
     ElemType *device_variables[3];
     ElemType *host_variable = NULL;
-    cudaError_t status[3];
+    cudaError_t status;
     int c = 2;
     host_variable = new int[N];
     if (host_variable == NULL)
@@ -25,12 +25,14 @@ int main(void)
     }
     do
     {
-        status[c--] = cudaMalloc((void **)&device_variables[c], sizeof(ElemType) * N);
-        if (status[c + 1] != cudaSuccess)
+        status = cudaMalloc((void **)&device_variables[c], sizeof(ElemType) * N);
+        if (status != cudaSuccess)
         {
+            fprintf(stderr,"%s\n",cudaGetErrorString(status));
             fprintf(stderr, "malloc fail in device var\n");
             exit(2);
         }
+        c--;
     } while (c >= 0);
     for(int i=0;i<N;i++){
         host_variable[i] = 1;
@@ -40,8 +42,12 @@ int main(void)
     kernel<<<1000,1000>>>(device_variables[0],device_variables[1],device_variables[2]);
     cudaMemcpy(host_variable, device_variables[2], sizeof(ElemType) * N, cudaMemcpyDeviceToHost);
     for(int i=0;i<10;i++){
-        printf("%d\n",host_variable[i]);
+        cout<<host_variable[i]<<endl;
     }
+    cudaFree(device_variables[0]);
+    cudaFree(device_variables[1]);
+    cudaFree(device_variables[2]);
+    delete[] host_variable;
     return 0;
 }
 ```
