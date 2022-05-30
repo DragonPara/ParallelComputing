@@ -1,3 +1,6 @@
+### Demo
++ demo.cu
+```cuda
 #include <iostream>
 #include <cstdlib>
 #define ElemType int
@@ -41,3 +44,23 @@ int main(void)
     }
     return 0;
 }
+```
+execute
+```shell
+[bash cuda]$ nvcc demo.cu -o demo
+[bash cuda]$ cuda-memcheck ./demo 
+========= CUDA-MEMCHECK
+========= This tool is deprecated and will be removed in a future release of the CUDA toolkit
+========= Please use the compute-sanitizer tool as a drop-in replacement
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+========= ERROR SUMMARY: 0 errors
+```
