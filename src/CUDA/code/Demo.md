@@ -54,10 +54,8 @@ int main(void)
 execute
 ```shell
 [bash cuda]$ nvcc demo.cu -o demo
-[bash cuda]$ cuda-memcheck ./demo 
-========= CUDA-MEMCHECK
-========= This tool is deprecated and will be removed in a future release of the CUDA toolkit
-========= Please use the compute-sanitizer tool as a drop-in replacement
+[bash cuda]$ compute-sanitizer ./demo
+========= COMPUTE-SANITIZER
 2
 2
 2
