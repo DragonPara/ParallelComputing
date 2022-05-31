@@ -12,6 +12,7 @@ void hello(){
         printf("Hello\n");
 }
 ```
+## command line
 ***compile p1.c to p1.c***
 
   `gcc -c p1.c`
