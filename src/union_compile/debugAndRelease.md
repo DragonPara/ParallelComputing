@@ -1,6 +1,6 @@
 ### generate debug and release procedure
 
-+  main.f90
++   main.f90
 ```fortran
 program p
     integer::x
@@ -16,7 +16,7 @@ $> gcc main.f90 -o main
 ```
 
 ***debug***
-+  add flag `g`
++   add flag `g`
 ```shell
 $> gcc -g main.f90 -o main
 ```
