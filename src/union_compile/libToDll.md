@@ -1,11 +1,11 @@
-+ main.c
++  main.c
 ```c
 void hello();
 int main(void){
         hello();
 }
 ```
-+ p1.c
++  p1.c
 ```c
 #include<stdio.h>
 void hello(){
