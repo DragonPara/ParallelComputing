@@ -16,7 +16,7 @@ $> gcc main.f90 -o main
 ```
 
 ***debug***
-+ add flag `g`
++  add flag `g`
 ```shell
 $> gcc -g main.f90 -o main
 ```
