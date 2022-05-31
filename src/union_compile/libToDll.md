@@ -1,11 +1,11 @@
-+  main.c
++       main.c
 ```c
 void hello();
 int main(void){
         hello();
 }
 ```
-+  p1.c
++       p1.c
 ```c
 #include<stdio.h>
 void hello(){
@@ -25,7 +25,7 @@ void hello(){
 
   `gcc --shared -fpic libp1.lib - libp1.dll`
   
-***compile and link main procedure***
+#### ***compile and link main procedure***
 
   `gcc main.c -L. -lp1 -o main`
   
