@@ -1,6 +1,6 @@
 ### generate debug and release procedure
 
-+ main.f90
++  main.f90
 ```fortran
 program p
     integer::x
