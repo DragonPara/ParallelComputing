@@ -1,4 +1,4 @@
-## record a using method of remote
+## A record of a method of using nsight
 `nsys profile -o timeline -force-overwrite true ./demo`
 
 **the command will run `demo` procedure and generate `timeline.nsys-rep`**
