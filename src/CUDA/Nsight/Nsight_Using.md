@@ -5,4 +5,4 @@
 
 then send it to your laptop or workstation, pull `timeline.nsys-rep` to nsight system.
 
-[](../photo/nsight_screenshot.png)
+![](../photo/nsight_screenshot.png)
