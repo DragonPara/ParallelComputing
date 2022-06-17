@@ -1,0 +1,319 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{header-n0}{%
+\section{一般带状线性方程组的分裂法}\label{header-n0}}
+
+\tableofcontents
+
+\hypertarget{header-n3}{%
+\subsection{描述：}\label{header-n3}}
+
+考虑带状线性方程组\(Ax=r\)，其中\(A\)是上、下半带宽分别为\(\beta、\alpha\)的带状矩阵，现将其分块为
+
+\begin{bmatrix}
+ A^{(0,0)} & A^{(0,1)} &           &           &           \\
+  A^{(1,0)} & A^{(1,1)} & A^{(1,2)} &           &           \\
+            & A^{(2,1)} & A^{(2,2)} &  \ddots   &           \\
+            &           &  \ddots   &  \ddots   & A^{(3,4)} \\
+            &           &           & A^{(4,3)} & A^{(4,4)}
+\end{bmatrix}
+\begin{bmatrix}
+        x^{(0)}         \\
+        x^{(1)}         \\
+        x^{(2)}         \\
+        \vdots          \\
+        x^{(p-1)}       \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+        r^{(0)}     \\
+    r^{(1)}     \\
+    r^{(2)}     \\
+    \vdots      \\
+    r^{(p-1)}   \\
+\end{bmatrix}
+
+\(\alpha\)包含主对角线的，\(\beta\)不包含主对角线。
+
+其中\(A^{(i,j)}\)是\(n_i \times n_j\)矩阵，\(x^{(i)}=[x_{m_i+1},\cdots,x_{m_i+ni}]^T\)与\(r^{(i)}=[r_{m_i+1},r_{m_i+2},\cdots,r_{m_i+n_i}]^T\)为\(n_i\)维向量，\(\alpha+beta-2 \le \min\{n_i:0\le i \le p-1\}\)，且
+
+\[\left\{\begin{matrix}
+ m_0=0\\
+ m_{i+1}=m_i+n_i,i=1,2,\cdots,p
+\end{matrix}\right.\]
+
+当\(n=24,\alpha=2,\beta=2,p=4\)且\(n_i \equiv 6\)时，矩阵\(A\)的分裂方式如下图所示.
+
+\[\small
+\begin{matrix}
+ b_1 & c_1 & d_1 &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+ a_2 & b_2 & c_2  & d_2 &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+  &  a_3 & b_3 & c_3 & d_3 &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+  &  &  a_4 & b_4 & c_4 & d_4 &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+  &  &  &  a_5 & b_5 & c_5 & d_5 &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+  &  &  &  &  a_6 & b_6 & c_6 & d_6 &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\ \hline
+  &  &  &  &  &  a_7 & b_7 & c_7 & d_7 &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+  &  &  &  &  &  &  a_8 & b_8 & c_8 & d_8 &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+  &  &  &  &  &  &  &  a_9 & b_9 & c_9 & d_9 &  &  &  &  &  &  &  &  &  &  &  &  & \\
+  &  &  &  &  &  &  &  &  a_{10} & b_{10} & c_{10} & d_{10} &  &  &  &  &  &  &  &  &  &  &  & \\
+  &  &  &  &  &  &  &  &  &  a_{11} & b_{11} & c_{11} & d_{11} &  &  &  &  &  &  &  &  &  &  & \\
+  &  &  &  &  &  &  &  &  &  &  a_{12} & b_{12} & c_{12} & d_{12} &  &  &  &  &  &  &  &  &  & \\ \hline
+  &  &  &  &  &  &  &  &  &  &  &  a_{13} & b_{13} & c_{13} & d_{13} &  &  &  &  &  &  &  &  & \\
+  &  &  &  &  &  &  &  &  &  &  &  &  a_{14} & b_{14} & c_{14} & d_{14} &  &  &  &  &  &  &  & \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  a_{15} & b_{15} & c_{15} & d_{15} &  &  &  &  &  &  & \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  a_{16} & b_{16} & c_{16} & d_{16} &  &  &  &  &  & \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  a_{17} & b_{17} & c_{17} & d_{17} &  &  &  &  & \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  a_{18} & b_{18} & c_{18} & d_{18} &  &  &  & \\ \hline
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  a_{19} & b_{19} & c_{19} & d_{19} &  &  & \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  a_{20} & b_{20} & c_{20} & d_{20} &  & \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  a_{21} & b_{21} & c_{21} & d_{21} & \\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  a_{22} & b_{22} & c_{22} & d_{22}\\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  a_{23} & b_{23} & c_{23}\\
+  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  a_{24} & b_{24}
+\end{matrix}\]
+
+\hypertarget{header-n11}{%
+\subsection{解法 ：}\label{header-n11}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{     \#\#\# 第一步}
+\end{Highlighting}
+\end{Shaded}
+
+首先对\(i=0,1,\cdots,p-1\)，消去\(A_{(i,j)}\)中对角线以下元素，即
+
+\[\large e_{m_i+1,m_i+\alpha-1,1:\alpha-1} \gets a_{m_i+1,m_i+\alpha-1,m_i-\alpha+2:m_i}\]
+
+且对\(k=m_{i}+1,m_{i}+2,\cdots,m_{i+1}\)，\(l=l_1,l_1+1,\cdots,k-1\)，依次执行
+
+\[a_{k,l} \gets a_{k,l}/a_{l,l}; r_k \gets r_k+a_{k,l}r_l;\\
+a_{k,j} \gets a_{k,j}+a_{k,l}a_{l,j},j=l+1,\cdots,\min(l+\beta-1,n);\\
+\begin{align} \tag{1}
+e_{k,j} \gets
+\begin{cases}
+        a_{k,l}e_{l,j},\\
+        e_{k,j}+a_{k,l}e_{l,j},
+\end{cases}
+\begin{matrix}
+l = l_1 且 k \ge m_i + \alpha\\
+l \ne l_1 或 k < m_i + \alpha
+\end{matrix}
+,j=1,2,\cdots,\alpha-1
+\end{align}\]
+
+其中\(l_1=\max(m_i+1,k-\alpha+1)\)，且（1）式对\(i=0\)不需计算，
+
+其次，对\(i=0,1,\cdots,p-1\)消去\(A^{(i,j)}\)中对角线以上元素，即
+
+\[\large f_{m_{i+1}-\beta+2:m_{i+1},1,\beta-1} \gets a_{m_{i+1}-\beta+2:m_{i+1},m_{m+1}+1,m_{i+1}+\beta-1}\]
+
+且对\(k=m_{i+1},\cdots,m_i+2,m_i+l,l=l_2,l_2-1,\cdots,k+1\)，依次执行
+
+\begin{equation} a_{k,l} \gets a_{k,l}/a_{l,l};r_k \gets r_k + a_{k,l}r_l;\tag{2} \end{equation}
+
+\begin{equation} e_{k,j} \gets e_{k,j}+a_{k,l}e_{l,j},j=1,2,\cdots,\alpha-1;\tag{3}
+\end{equation}
+
+\begin{align}
+\tag{4}
+f_{k,j} \gets
+\begin{cases}
+a_{k,l}f_{l,j},\\
+f_{k,j}+a_{k,l}f_{l,j},
+\end{cases}
+\begin{matrix}
+l = l_2 且 k < m_{i+1} - \beta + 2 \\
+l \ne l_2 或 k \ge m_{i+1} - \beta + 2
+\end{matrix}, j=1,2,\cdots,\beta-1,
+\end{align}
+
+其中\(l_2=\min(k+\beta-1,m_{i,1})\)，且（3）式对\(i=0\)不需计算，（4）式对\(i=p-1\)不需计算。
+
+当\(n=24,\alpha=2,\beta=3,p=4\) 且 \(n_i=6\)
+时，完成第一步后，得到的新系统矩阵如下图所示
+
+\[\small\begin{matrix}
+ b_1& & & & & & f_1& g_1& & & & & & & & & & & & & & & & \\
+ & b_2& & & & & f_2& g_2& & & & & & & & & & & & & & & & \\
+ & & b_3& & & & f_3& g_3& & & & & & & & & & & & & & & & \\
+ & & & b_4& & & f_4& g_4& & & & & & & & & & & & & & & & \\
+ & & & & b_5& & f_5& g_5& & & & & & & & & & & & & & & & \\
+ & & & & & b_6& f_6& g_6& & & & & & & & & & & & & & & & \\ \hline
+ & & & & & e_7& b_7& & & & & & f_7& g_7& & & & & & & & & & \\
+ & & & & & e_8& & b_8& & & & & f_8& g_8& & & & & & & & & & \\
+ & & & & & e_9& & & b_9& & & & f_9& g_9& & & & & & & & & & \\
+ & & & & & e_{10}& & & & b_{10}& & & f_{10}& g_{10}& & & & & & & & & & \\
+ & & & & & e_{11}& & & & & b_{11}& & f_{11}& g_{11}& & & & & & & & & & \\
+ & & & & & e_{12}& & & & & & b_{12}& f_{12}& g_{12}& & & & & & & & & & \\ \hline
+ & & & & & & & & & & & e_{13}& b_{13}& & & & & & f_{13}& g_{13}& & & & \\
+ & & & & & & & & & & & e_{14}& & b_{14}& & & & & f_{14}& g_{14}& & & & \\
+ & & & & & & & & & & & e_{15}& & & b_{15}& & & & f_{15}& g_{15}& & & & \\
+ & & & & & & & & & & & e_{16}& & & & b_{16}& & & f_{16}& g_{16}& & & & \\
+ & & & & & & & & & & & e_{17}& & & & & b_{17}& & f_{17}& g_{17}& & & & \\
+ & & & & & & & & & & & e_{18}& & & & & & b_{18}& f_{18}& g_{18}& & & & \\ \hline
+ & & & & & & & & & & & & & & & & & e_{19}& b_{19}& & & & & \\
+ & & & & & & & & & & & & & & & & & e_{20}& & b_{20}& & & & \\
+ & & & & & & & & & & & & & & & & & e_{21}& & & b_{21}& & & \\
+ & & & & & & & & & & & & & & & & & e_{22}& & & & b_{22}& & \\
+ & & & & & & & & & & & & & & & & & e_{23}& & & & & b_{23}& \\
+ & & & & & & & & & & & & & & & & & e_{24}& & & & & & b_{24}\\
+\end{matrix}\]
+
+\hypertarget{header-n27}{%
+\subsubsection{第二步}\label{header-n27}}
+
+设 \(\gamma = \alpha+\beta-2\)，求解由
+
+\[E^{(i,2)}x^{(i-1,2)}+D^{(i,2)}x^{(i,2)}+F^{(i,2)}x^{(i+1,1)}=r^{(i,2)},i=0,1,\cdots,p-2,\]
+
+\[E^{(i+1,1)}x^{(i,2)}+D^{(i+1,1)}x^{(i+1,1)}+F^{(i+1,1)}x^{(i+2,1)}=r^{(i+1,1)},i=0,1,\cdots,p-2,\]
+
+组成的\((p-1)\gamma\) 阶线性方程组，其中
+
+\[E^{(i,1)}=e_{m_i+1:m_i+\beta-1,1:\alpha-1}, \quad E^{(i,2)}=e_{m_i-\alpha+2:m_{i+1},1:\alpha-1}, \\
+F^{(i,1)}=f_{m_i+1:m_i+\beta-1,1:\beta-1}, \quad F^{(i,2)}=f_{m_i-1-\alpha+2:m_{i+1},1:\beta-1},\]
+
+\[D_{(i,1)}=diag(a_{m_i+1,m_i+1},\cdots,a_{m_{i+\beta-1},m_{i+\beta-1}}),
+\\
+D_{(i,2)}=diag(a_{m_{i-1}-\alpha+2,m_{i+1}-\alpha+2},\cdots,a_{m_i+1,m_{i+1}}),\]
+
+\[x^{(i,1)}=[x_{m_i+1},x_{m_i+2},\cdots,x_{m_i+\beta-1}]^T \\
+r^{(i,1)}=[r_{m_i+1},r_{m_i+2},\cdots,r_{m_i+\beta-1}]^T\]
+
+可以将以上线性方程组写为
+
+\[By=s\]
+
+其中
+
+\[B=
+\begin{bmatrix}
+F^{(0,2)} & D^{(0,2)} \\
+D^{(1,1)} & E^{(1,1)} & F^{(1,1)} \\
+                  & E^{(1,2)} & F^{(1,2)} & D^{(1,2)} \\
+                  &               & D^{(2,1)} & E^{(2,1)} & F^{(2,1)} \\
+                  &                       &                       &     \ddots    & \ddots      & \ddots \\
+                  &                       &               &               & E^{(p-2,2)} & F^{(p-2,2)} & D^{(p-2,2)} \\
+                  &                       &               &               &                     & D^{(p-1,1)} & E^{(p-1,1)}
+\end{bmatrix}\]
+
+\[y=[ (x^{(1,1)})^T , (x^{(0,2)})^T , (x^{(2,1)})^T , (x^{(1,2)})^T,\cdots,(x^{p-1,1})^T,(x^{(p-2,2)})^T]^T, \\
+s=[ (r^{(1,1)})^T , (r^{(0,2)})^T , (r^{(2,1)})^T , (r^{(1,2)})^T,\cdots,(r^{p-1,1})^T,(r^{(p-2,2)})^T]^T,\]
+
+\hypertarget{header-n40}{%
+\subsubsection{第三步}\label{header-n40}}
+
+利用得到的\(x_{m_i-\alpha+2}, \cdots, x_{m_i}, x_{m_i+1}, \cdots, x_{m_i+\beta-1}, i=1, 2, \cdots, p-1\)求出所有其他解的分量，即进行如下操作：
+
+\[x_k \gets
+(r_k - \sum_{j=1}^{\beta-1} f_{k,j} x_{n_1-\beta+1+j}) / a_k,
+\quad k=1, 2, \cdots, n1 - \alpha + 1\]
+
+\begin{align}
+x_{m_i+k} \gets
+(r_{m_i+k}-\sum^{\alpha-1}_{j=1}e_{m_i+k_{i,j}}x_{m_i-\alpha+1+j}-\sum^{\beta-1}_{j=1}f_{m_i+k\cdot j}x_{m_{i-1}-\beta+1+j})/a_{m_i+k},
+\end{align}
+\quad
+\begin{matrix}
+k=\beta,\cdots,n_i-\alpha+1 \\
+i=1,2,\cdots,p-2 \quad
+\end{matrix},
+
+\[x_{m_{p-1}+k} \gets
+(r_{m_{p-1}+k}-\sum^{\alpha-1}_{j=1}e_{m_{p-1}+k\cdot j}x_{m_{p-1}-\alpha+1+j})/a_{m_{p-1}+k},k=\beta,\beta+1,\cdots,n_{p-1
+}.\]
+
+显然，带状线性方程组求解的分裂法可以直接推广到块带状线性方程组，对于循环带状线性方程组与循环块带状线性方程组，也可以类似求解，其求解算法跟带状线性方程组与块带状线性方程组的求解并无本质区别。
+
+\end{document}
