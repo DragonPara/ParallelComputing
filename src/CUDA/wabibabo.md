@@ -152,7 +152,7 @@ cudaMemcpyToSymbol(
 
 <h5>dynamic shared memory</h5>
 
-```
+```c++
 __global__ void kernel(){
 	int n=10;
 	__shared__ int a[n];
