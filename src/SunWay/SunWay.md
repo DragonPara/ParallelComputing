@@ -13,7 +13,7 @@ int main(void){
         printf("Init Success!\n");
     else
         printf("Init Fail!\n");
-        athread_spawn((void *)SLAVE_FUN(test_slave),0);
+    athread_spawn((void *)SLAVE_FUN(test_slave),0);
     athread_join();
     return 0;
 }
